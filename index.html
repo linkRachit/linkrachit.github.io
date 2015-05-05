@@ -125,11 +125,12 @@
           </button>
           <a class="navbar-brand" href="#">Marketing Through Facebook</a>
         </div>
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+        
         <div id="navbar" class="navbar-collapse collapse">
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
           <form class="navbar-form navbar-right">
-              <button type="submit" class="btn btn-success">Facebook Login</button>
+              <button scope="public_profile,email" onlogin="checkLoginState();" type="submit" class="btn btn-success">Facebook Login</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
