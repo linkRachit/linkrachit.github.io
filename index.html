@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,8 +30,10 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-    <script>
-    function statusChangeCallback(response) {
+   
+  <script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -64,12 +65,14 @@
   }
 
   window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '364122993775135',
-      xfbml      : true,
-      version    : 'v2.3'
-    });
-  };
+  FB.init({
+    appId      : '364122993775135',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.2' // use version 2.2
+  });
+
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
   // person visiting this page and can return one of three states to
@@ -89,14 +92,15 @@
   };
 
   // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+  
 
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=364122993775135";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
@@ -107,31 +111,23 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
-    
-    
-
 </script>
+
+
 
 
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Marketing Through Facebook</a>
+             <a class="navbar-brand" href="#">Marketing Through Facebook</a>
         </div>
-        
-        <div id="navbar" class="navbar-collapse collapse">
-          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-          <form class="navbar-form navbar-right">
-              <button scope="public_profile,email" onlogin="checkLoginState();" type="submit" class="btn btn-success">Facebook Login</button>
-          </form>
+       
+        <div id="navbar" class="navbar-form navbar-right">
+          <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+             <!--   <form class="navbar-form navbar-right">
+              <button type="submit" class="btn btn-success"scope="public_profile,email" onlogin="checkLoginState();">Facebook Login</button>
+          </form>-->
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -191,10 +187,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-<div id="status">
-</div>
+
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -224,7 +217,8 @@
       </div><!-- /.row -->
 
 
-      
+     
+
 
 <div
   class="fb-like"
@@ -232,10 +226,11 @@
   data-width="450"
   data-show-faces="true">
 </div>
+
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; Burgler Developer  </p>
+        <p>&copy; linkRachit  </p>
       </footer>
 
     </div><!-- /.container -->
